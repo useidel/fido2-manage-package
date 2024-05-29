@@ -12,8 +12,22 @@ URL:		%{forgeurl}
 Source0:	https://github.com/token2/%{pkgname}/%{pkgname}/releases/download/v%{version}/v%{version}.tar.gz
 Summary: 	Tool allowing to manage FIDO2.1 devices over USB or NFC	
 
-BuildRequires:  pkgconf-pkg-config zlib-ng-compat-devel cmake libcbor-devel openssl-devel libgudev-devel pcsc-lite-devel dos2unix
-Requires:  zlib-ng-compat libcbor openssl libgudev pcsc
+BuildRequires:  pkgconf-pkg-config gcc cmake libcbor-devel openssl-devel libgudev-devel pcsc-lite-devel dos2unix
+
+%if 0%{?fedora} < 40
+BuildRequires: zlib-ng-devel
+%else
+BuildRequires: zlib-ng-compat-devel
+%endif
+
+Requires:  libcbor openssl libgudev pcsc
+
+%if 0%{?fedora} < 40
+Requires: zlib-ng
+%else
+Requires: zlib-ng-compat
+%endif
+
 
 %description 
 Tool allowing to manage FIDO2.1 devices over USB or NFC, including Passkey (resident keys) management
