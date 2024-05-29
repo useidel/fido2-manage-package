@@ -2,6 +2,7 @@
 %global         forgeurl        https://github.com/token2/%{pkgname}
 %global 	debug_package %{nil}
 %define 	_build_id_links none
+%global commit  db585a3ad323a00e909f2b9535f2e13113d2d23e
 
 Name:		%{pkgname}
 Version:        0.0.1
