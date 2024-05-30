@@ -54,7 +54,7 @@ jobs:
       # Submit COPR build
       # The path is not the $GITHUB_WORKSPACE it is the RPMBUILD space
       - name: Submit the copr build
-        run: copr-cli build --nowait fetchmail7 /github/home/rpmbuild/SRPMS/*.src.rpm
+        run: copr-cli build --nowait fido2-manage-package /github/home/rpmbuild/SRPMS/*.src.rpm
 
       #### And we take care of the OBS part
       
