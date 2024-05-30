@@ -21,7 +21,7 @@ BuildRequires: zlib-ng-devel
 BuildRequires: zlib-ng-compat-devel
 %endif
 
-Requires:  libcbor openssl libgudev pcsc
+Requires:  libcbor openssl libgudev pcsc-lite
 
 %if 0%{?fedora} < 40
 Requires: zlib-ng
