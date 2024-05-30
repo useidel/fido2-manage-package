@@ -6,20 +6,12 @@
 
 Name:		%{pkgname}
 Version:        0.0.1
-Release:	2%{?dist}
+Release:	3%{?dist}
 License:	BSD-Clause 2 
 Vendor:		Token2
 URL:		%{forgeurl}
 Source0:	https://github.com/token2/%{pkgname}/%{pkgname}/releases/download/v%{version}/v%{version}.tar.gz
 Summary: 	Tool allowing to manage FIDO2.1 devices over USB or NFC	
-%description 
-Tool allowing to manage FIDO2.1 devices over USB or NFC, including Passkey (resident keys) management
-
-
-%package	gui
-Summary: 	Python-TK GUI to manage FIDO2.1 devices over USB or NFC	
-%description	gui
-Python-TK file as GUI frontend for %{pkgname}
 
 BuildRequires:  pkgconf-pkg-config gcc cmake libcbor-devel openssl-devel libgudev-devel pcsc-lite-devel dos2unix
 
@@ -36,6 +28,14 @@ Requires: zlib-ng
 %else
 Requires: zlib-ng-compat
 %endif
+
+%description 
+Tool allowing to manage FIDO2.1 devices over USB or NFC, including Passkey (resident keys) management
+
+%package	gui
+Summary: 	Python-TK GUI to manage FIDO2.1 devices over USB or NFC	
+%description	gui
+Python-TK file as GUI frontend for %{pkgname}
 
 
 %prep
@@ -78,6 +78,9 @@ chmod 755 %{buildroot}%{_bindir}/fido2-manage-gui
 
 
 %changelog
+* Wed May 30 2024 Udo Seidel <udoseidel@gmx.de> 0.0.1-3
+- correction of statements in SPEC file 
+
 * Wed May 30 2024 Udo Seidel <udoseidel@gmx.de> 0.0.1-2
 - using a subpackage for the GUI
 
